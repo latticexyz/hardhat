@@ -378,6 +378,7 @@ export class EthModule {
   // eth_chainId
 
   private _chainIdParams(params: any[]): [] {
+    if (params === undefined || params === null) return [];
     return validateParams(params);
   }
 

@@ -63,7 +63,11 @@ export function isValidJsonRequest(payload: any): boolean {
     return false;
   }
 
-  if (payload.params !== undefined && !Array.isArray(payload.params)) {
+  if (
+    payload.params !== undefined &&
+    payload.params !== null &&
+    !Array.isArray(payload.params)
+  ) {
     return false;
   }
 

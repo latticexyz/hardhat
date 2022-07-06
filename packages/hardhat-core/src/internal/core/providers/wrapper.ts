@@ -18,7 +18,7 @@ export abstract class ProviderWrapper
   ): ParamsT | [] {
     const params = args.params;
 
-    if (params === undefined) {
+    if (params === undefined || params === null) {
       return [];
     }
 

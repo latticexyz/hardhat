@@ -9,7 +9,7 @@ export abstract class ProviderWrapperWithChainId extends ProviderWrapper {
   private _chainId: number | undefined;
 
   protected async _getChainId(): Promise<number> {
-    if (this._chainId === undefined) {
+    if (this._chainId === undefined || this._chainId === null) {
       try {
         this._chainId = await this._getChainIdFromEthChainId();
       } catch {

@@ -104,7 +104,11 @@ export class HardhatNetworkProvider
   public async request(args: RequestArguments): Promise<unknown> {
     const release = await this._mutex.acquire();
 
-    if (args.params !== undefined && !Array.isArray(args.params)) {
+    if (
+      args.params !== undefined &&
+      args.params !== null &&
+      !Array.isArray(args.params)
+    ) {
       throw new InvalidInputError(
         "Hardhat Network doesn't support JSON-RPC params sent as an object"
       );
